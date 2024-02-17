@@ -4,6 +4,7 @@ import lombok.Value
 import java.time.LocalDateTime
 
 class Account (
+    // @Getter
     private val id : AccountId,
     private val baselineBalance : Money, // 첫번째 활동 바로 전의 잔고
     private val activityWindow : ActivityWindow // 지난 며칠 혹은 몇 주간의 범위에 해당하는 활동만 보유
