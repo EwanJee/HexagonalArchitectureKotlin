@@ -1,4 +1,4 @@
-package bukpal.domain
+package bukpal.account.domain
 
 import lombok.NonNull
 import lombok.RequiredArgsConstructor

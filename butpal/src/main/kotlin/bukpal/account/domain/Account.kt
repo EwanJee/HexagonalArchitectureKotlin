@@ -1,14 +1,15 @@
-package bukpal.domain
+package bukpal.account.domain
 
-import lombok.Getter
+import lombok.Value
 import java.time.LocalDateTime
 
 class Account (
-    val id : AccountId,
-    val baselineBalance : Money,
-    val activityWindow : ActivityWindow
+    private val id : AccountId,
+    private val baselineBalance : Money, // 첫번째 활동 바로 전의 잔고
+    private val activityWindow : ActivityWindow // 지난 며칠 혹은 몇 주간의 범위에 해당하는 활동만 보유
 ){
-    data class AccountId (
+    @Value
+    class AccountId (
         val value : Long?
     )
 
@@ -20,10 +21,10 @@ class Account (
             return Account(id, baselineBalance, activityWindow)
         }
     }
-    fun getId() : AccountId? {
+    fun getId() : AccountId {
         return id
     }
-    fun calculateBalance() : Money {
+    fun calculateBalance() : Money { // 현재 총 잔고
         return Money.add(baselineBalance, activityWindow.calculateBalance(id))
     }
 

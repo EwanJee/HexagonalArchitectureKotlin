@@ -1,4 +1,4 @@
-package bukpal.account.out.persistence
+package bukpal.account.adapter.out.persistence
 
 interface SpringDataAccountRepository {
     /**
